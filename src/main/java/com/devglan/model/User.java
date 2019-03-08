@@ -1,52 +1,45 @@
 package com.devglan.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "user")
+@Document(collection = "users")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
-    @Column
-    private String firstName;
-    @Column
-    private String lastName;
-    @Column
-    private String username;
-    @Column
+    @Id   
+    private String id;   
+    private String firstname;    
+    private String lastname;   
+    private String username;    
     @JsonIgnore
-    private String password;
-    @Column
-    private long salary;
-    @Column
+    private String password;    
+    private double salary;    
     private int age;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstname = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return lastname;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastname = lastName;
     }
 
     public String getUsername() {
@@ -65,11 +58,11 @@ public class User {
         this.password = password;
     }
 
-    public long getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(long salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
