@@ -4,7 +4,8 @@ services:
   springboot:
     build: .
     # image: registry.gitlab.com/idgst/springboot-mongo-demo:latest
-    restart: always   
+    restart: always
+    container_name: inntrade  
     ports:
       - 8080:8080
     working_dir: /opt/app
@@ -13,6 +14,7 @@ services:
   
   mongo:
     image: mongo   
+    container_name: inntrade_mongo  
     ports:  # for demo/debug purpose only
       - 27017:27017    
     restart: always
