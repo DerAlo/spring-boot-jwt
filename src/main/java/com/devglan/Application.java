@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.github.mongobee.Mongobee;
 
+//@SpringBootApplication(exclude = { MongoAutoConfiguration.class, MongoDataAutoConfiguration.class })
 @SpringBootApplication
 public class Application {
 
@@ -16,7 +17,8 @@ public class Application {
 
 	@Bean
 	public static Mongobee mongobee() {
-		Mongobee runner = new Mongobee("mongodb://127.0.0.1:27017/inntrade");
+		//Mongobee runner = new Mongobee("mongodb://127.0.0.1:27017/inntrade");
+		Mongobee runner = new Mongobee("mongodb://mongo:27017/inntrade");
 		runner.setChangeLogsScanPackage("com.devglan.model.mongobee");
 		return runner;
 	}
